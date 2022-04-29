@@ -1,6 +1,10 @@
 controllers:
     resource: ../src/Controller/
     type: annotation
+TestBundle:
+    resource: ../src/TestBundle
+    type: annotation
+    prefix: test-bundle
 
 kernel:
     resource: ../src/Kernel.php
