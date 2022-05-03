@@ -13,6 +13,6 @@ class AppBundleController extends AbstractController
     /** @Route("/",methods={"GET"}) */
     public function testAction(Request $request): Response
     {
-        return new Response(json_encode(['Hello'=>'world2']), Response::HTTP_OK);
+        return new Response(json_encode(['Hello' => 'nour']), Response::HTTP_OK);
     }
 }
