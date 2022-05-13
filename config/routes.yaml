@@ -5,6 +5,10 @@ AppBundle:
     resource: ../src/AppBundle
     type: annotation
 
+InventoryManagementBundle:
+    resource: ../src/InventoryManagementBundle
+    type: annotation
+
 kernel:
     resource: ../src/Kernel.php
     type: annotation
