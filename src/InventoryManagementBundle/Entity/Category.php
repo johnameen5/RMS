@@ -32,4 +32,33 @@ class Category
      * @ORM\Column(type="string", length=64)
      */
     protected string $arabicName;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getEnglishName(): ?string
+    {
+        return $this->englishName;
+    }
+
+    public function setEnglishName(string $englishName): self
+    {
+        $this->englishName = $englishName;
+
+        return $this;
+    }
+
+    public function getArabicName(): ?string
+    {
+        return $this->arabicName;
+    }
+
+    public function setArabicName(string $arabicName): self
+    {
+        $this->arabicName = $arabicName;
+
+        return $this;
+    }
 }

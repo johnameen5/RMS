@@ -36,7 +36,7 @@ class Supplier
     /**
      * @var Address $address
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Address")
+     * @ORM\OneToOne(targetEntity="App\InventoryManagementBundle\Entity\Address")
      */
     protected Address $address;
 
@@ -46,4 +46,57 @@ class Supplier
      * @ORM\Column(type="integer")
      */
     protected int $phoneNumber;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getEnglishName(): ?string
+    {
+        return $this->englishName;
+    }
+
+    public function setEnglishName(string $englishName): self
+    {
+        $this->englishName = $englishName;
+
+        return $this;
+    }
+
+    public function getArabicName(): ?string
+    {
+        return $this->arabicName;
+    }
+
+    public function setArabicName(string $arabicName): self
+    {
+        $this->arabicName = $arabicName;
+
+        return $this;
+    }
+
+    public function getPhoneNumber(): ?int
+    {
+        return $this->phoneNumber;
+    }
+
+    public function setPhoneNumber(int $phoneNumber): self
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    public function getAddress(): ?Address
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?Address $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
 }

@@ -22,21 +22,62 @@ class OrderedProduct
     /**
      * @var Product $product
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Product")
+     * @ORM\ManyToOne(targetEntity="App\InventoryManagementBundle\Entity\Product")
      */
     protected Product $product;
 
     /**
      * @var Order $order
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Order")
+     * @ORM\ManyToOne(targetEntity="App\InventoryManagementBundle\Entity\Order")
      */
     protected Order $order;
 
     /**
-     * @var float $weight
+     * @var ?float $weight
      *
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="float",nullable=true)
      */
-    protected float $weight;
+    protected ?float $weight = null;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getWeight(): ?float
+    {
+        return $this->weight;
+    }
+
+    public function setWeight(?float $weight): self
+    {
+        $this->weight = $weight;
+
+        return $this;
+    }
+
+    public function getProduct(): ?Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?Product $product): self
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    public function getOrder(): ?Order
+    {
+        return $this->order;
+    }
+
+    public function setOrder(?Order $order): self
+    {
+        $this->order = $order;
+
+        return $this;
+    }
 }

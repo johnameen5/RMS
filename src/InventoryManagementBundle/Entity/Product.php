@@ -22,7 +22,7 @@ class Product
     /**
      * @var Category $category
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Category")
+     * @ORM\ManyToOne(targetEntity="App\InventoryManagementBundle\Entity\Category")
      */
     protected Category $category;
 
@@ -55,16 +55,124 @@ class Product
     protected int $type;
 
     /**
-     * @var float $reorderQuantity
+     * @var ?float $reorderQuantity
      *
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="float",nullable=true)
      */
-    protected float $reorderQuantity;
+    protected ?float $reorderQuantity = null;
 
     /**
-     * @var float $chargableWeight
+     * @var ?float $reorderWeight
      *
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="float",nullable=true)
      */
-    protected float $chargableWeight;
+    protected ?float $reorderWeight = null;
+
+    /**
+     * @var ?float $chargeableWeight
+     *
+     * @ORM\Column(type="float",nullable=true)
+     */
+    protected ?float $chargeableWeight = null;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    public function getEnglishName(): ?string
+    {
+        return $this->englishName;
+    }
+
+    public function setEnglishName(string $englishName): self
+    {
+        $this->englishName = $englishName;
+
+        return $this;
+    }
+
+    public function getArabicName(): ?string
+    {
+        return $this->arabicName;
+    }
+
+    public function setArabicName(string $arabicName): self
+    {
+        $this->arabicName = $arabicName;
+
+        return $this;
+    }
+
+    public function getType(): ?int
+    {
+        return $this->type;
+    }
+
+    public function setType(int $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function getReorderQuantity(): ?float
+    {
+        return $this->reorderQuantity;
+    }
+
+    public function setReorderQuantity(?float $reorderQuantity): self
+    {
+        $this->reorderQuantity = $reorderQuantity;
+
+        return $this;
+    }
+
+    public function getReorderWeight(): ?float
+    {
+        return $this->reorderWeight;
+    }
+
+    public function setReorderWeight(?float $reorderWeight): self
+    {
+        $this->reorderWeight = $reorderWeight;
+
+        return $this;
+    }
+
+    public function getChargeableWeight(): ?float
+    {
+        return $this->chargeableWeight;
+    }
+
+    public function setChargeableWeight(?float $chargeableWeight): self
+    {
+        $this->chargeableWeight = $chargeableWeight;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
 }

@@ -22,7 +22,34 @@ class ExpiredInventory
     /**
      * @var Inventory $inventory
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Supplier")
+     * @ORM\OneToOne(targetEntity="App\InventoryManagementBundle\Entity\Inventory",mappedBy="expiredInventory")
      */
     protected Inventory $inventory;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getInventory(): ?Inventory
+    {
+        return $this->inventory;
+    }
+
+    public function setInventory(?Inventory $inventory): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($inventory === null && $this->inventory !== null) {
+            $this->inventory->setExpiredInventory(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($inventory !== null && $inventory->getExpiredInventory() !== $this) {
+            $inventory->setExpiredInventory($this);
+        }
+
+        $this->inventory = $inventory;
+
+        return $this;
+    }
 }

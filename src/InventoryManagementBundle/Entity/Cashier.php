@@ -20,23 +20,27 @@ class Cashier
     protected int $id;
 
     /**
-     * @var Employee $employee
-     *
-     * @ORM\OneToMany(targetEntity="App\Entity\Employee")
-     */
-    protected Employee $employee;
-
-    /**
      * @var Branch $branch
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Branch")
+     * @ORM\ManyToOne(targetEntity="App\InventoryManagementBundle\Entity\Branch")
      */
     protected Branch $branch;
 
-    /**
-     * @var Shift $shift
-     *
-     * @ORM\OneToMany(targetEntity="App\Entity\Shift")
-     */
-    protected Shift $shift;
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getBranch(): ?Branch
+    {
+        return $this->branch;
+    }
+
+    public function setBranch(?Branch $branch): self
+    {
+        $this->branch = $branch;
+
+        return $this;
+    }
+
 }
