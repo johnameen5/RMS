@@ -86,7 +86,7 @@ class Inventory
     /**
      * @var ExpiredInventory $expiredInventory
      *
-     * @ORM\OneToOne(targetEntity="App\InventoryManagementBundle\Entity\ExpiredInventory",mappedBy="inventory")
+     * @ORM\OneToOne(targetEntity="App\InventoryManagementBundle\Entity\ExpiredInventory",inversedBy="inventory")
      */
     protected ExpiredInventory $expiredInventory;
 

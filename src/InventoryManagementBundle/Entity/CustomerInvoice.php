@@ -22,7 +22,7 @@ class CustomerInvoice
     /**
      * @var Order $order
      *
-     * @ORM\OneToOne(targetEntity="App\InventoryManagementBundle\Entity\Order",mappedBy="customerInvoice")
+     * @ORM\OneToOne(targetEntity="App\InventoryManagementBundle\Entity\Order",inversedBy="customerInvoice")
      */
     protected order $order;
 

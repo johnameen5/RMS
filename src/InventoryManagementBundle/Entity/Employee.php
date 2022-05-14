@@ -130,7 +130,7 @@ class Employee
     /**
      * @var User $user
      *
-     * @ORM\OneToOne(targetEntity="App\AppBundle\Entity\User",mappedBy="employee")
+     * @ORM\OneToOne(targetEntity="App\AppBundle\Entity\User",inversedBy="employee")
      */
     protected User $user;
 
@@ -317,5 +317,21 @@ class Employee
         $this->company = $company;
 
         return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     */
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
     }
 }
