@@ -2,6 +2,7 @@
 
 namespace App\InventoryManagementBundle\Entity;
 
+use App\AppBundle\Entity\User;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -125,6 +126,13 @@ class Employee
      * @ORM\Column(type="datetime")
      */
     protected DateTime $terminationDate;
+
+    /**
+     * @var User $user
+     *
+     * @ORM\OneToOne(targetEntity="App\AppBundle\Entity\User",mappedBy="employee")
+     */
+    protected User $user;
 
     public function getId(): ?int
     {
